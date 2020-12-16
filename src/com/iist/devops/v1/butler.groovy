@@ -29,3 +29,18 @@ def get_version() {
     echo "# version: ${version}"
     this.version
 }
+
+def aws_codebuild(  pProjectName,
+                    pEnvVariables,
+                    pCredentialsId = 'codebuild-user',
+                    pCredentialsType = 'jenkins',
+                    pSourceControlType = 'jenkins',
+                    defaultRegion = 'ap-northeast-2'
+                    ) {
+    awsCodeBuild  credentialsId: pCredentialsId,
+                  credentialsType: pCredentialsType,
+                  sourceControlType: pSourceControlType,
+                  projectName: pProjectName,
+                  region: defaultRegion,
+                  envVariables: pEnvVariables
+}
