@@ -37,6 +37,8 @@ def aws_codebuild(  pProjectName,
                     pSourceControlType = 'jenkins',
                     defaultRegion = 'ap-northeast-2'
                     ) {
+
+    echo "env : ${pEnvVariables}"
     awsCodeBuild  credentialsId: pCredentialsId,
                   credentialsType: pCredentialsType,
                   sourceControlType: pSourceControlType,
@@ -44,3 +46,4 @@ def aws_codebuild(  pProjectName,
                   region: defaultRegion,
                   envVariables: pEnvVariables
 }
+
